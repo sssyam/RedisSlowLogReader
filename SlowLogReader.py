@@ -1,4 +1,5 @@
-import datetime, sys
+import datetime
+import sys
 
 class SlowLogEntry:
     def __init__(self, entry, time, execute, command, client_socket, client_name):
