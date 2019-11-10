@@ -175,6 +175,6 @@ if __name__ == "__main__":
     r = FileReader(params[1])
     p = SlowLogParser(r.read())
     time = ''
-    if len(params) > 1 and params == 'utc' or params == "UTC":
+    if len(params) > 1 and params[2] == 'utc' or params[2] == "UTC":
         time = 'utc'
     p.parse(time=time)
