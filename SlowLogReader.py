@@ -153,8 +153,28 @@ class FileReader:
     def read(self):
         return self.data
 
-
+"""
 if __name__ == "__main__":
     r = FileReader('SlowLog')
     p = SlowLogParser(r.read())
     p.parse(time='utc')
+"""    
+    
+USAGE = """
+    Supports only Python 3
+    Format:
+    $ python3 SlowLogReader.py  <FileName>  <TS: Blank or UTC>
+
+"""
+
+if __name__ == "__main__":
+    params = sys.argv
+    if len(params) < 2 and len(params) > 3:
+        print (USAGE)
+        exit(1)
+    r = FileReader(params[1])
+    p = SlowLogParser(r.read())
+    time = ''
+    if len(params) > 1 and params == 'utc' or params == "UTC":
+        time = 'utc'
+    p.parse(time=time)
